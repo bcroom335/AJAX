@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Get XML File Demo3</title>
+</head>
+<body>
+	<h2>Get XML File Demo3</h2>
+	<table border='1' id="demo"></table>
+	<script>
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200)
+				var xmlDoc=xhttp.responseXML;
+				var txt="<tr><th>劇名<th>製作團<th>時間<th>適齡<th>票價";
+				var events=xmlDoc.getElementsByTagName("event");
+				for(i=0;i<events.length;i++){
+					txt +="<tr><td>"+events[i].getAttribute("劇名");
+					txt +="<td>"+events[i].getAttribute("製作團");
+					txt +="<td>"+events[i].getAttribute("時間");
+					txt +="<td>"+events[i].getAttribute("適齡");
+					txt +="<td>"+events[i].getAttribute("票價");
+				}
+				document.getElementById("demo").innerHTML = txt;
+		}
+		xhttp.open("GET","Event2.xml",true);
+		xhttp.send();
+	</script>
+
+</body>
+</html>

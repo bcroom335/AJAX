@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Get Cache Demo</title>
+</head>
+<body>
+<h2>Get Cache Demo</h2>
+<div id="demo"></div>
+<script>
+ 	var xhttp=new XMLHttpRequest();
+ 	xhttp.onreadystatechange=function(){
+ 		if(this.readyState==4 && this.status==200)
+ 			document.getElementById("demo").innerHTML=xhttp.responseText;
+ 	}
+ 	xhttp.open("GET","Now.jsp",true);
+	xhttp.send();
+</script>
+
+</body>
+</html>

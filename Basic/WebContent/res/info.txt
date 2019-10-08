@@ -1,0 +1,5 @@
+
+<b>AJAX stands for Asynchronous JavaScript And XML.</b>
+<p>AJAX is a technique for accessing web servers from a web page.</p>
+<p>AJAX is not a programming language.</p>
+<P>你好好好</p>

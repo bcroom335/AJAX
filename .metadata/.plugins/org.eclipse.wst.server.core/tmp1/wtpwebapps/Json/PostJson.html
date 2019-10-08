@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Post JSON Example</title>
+	<script>
+		function doJSON(){
+			var car=new Car("Toyota","Altis",2019,"white");
+			var carAsJSON=JSON.stringify(car);
+			//alert("Car object as JSON:\n"+carAsJSON);
+	
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200){			
+					document.getElementById("show").innerHTML = 
+						"<b>"+xhttp.responseText+"</b>";
+				}	
+			}					
+			var url="http://localhost:8080/Json/PostJson";
+			xhttp.open("Post",url,true);
+			xhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+			xhttp.send(carAsJSON);
+		}
+		function Car(make,model,year,color){
+			this.make=make;
+			this.model=model;
+			this.year=year;
+			this.color=color;
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value="Send JSON" onclick="doJSON()"/><p>
+	<h2>Server Response:</h2>
+	<div id="show"></div>
+</body>
+</html>

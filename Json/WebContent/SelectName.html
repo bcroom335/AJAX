@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Select</title>
+</head>
+<body>
+	<form>
+		<p><b>Choose a name:</b></p>
+		<span id="show"></span>
+	</form>
+	<script>
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200){
+				document.getElementById("show").innerHTML = this.responseText;
+			}
+		}
+		xhttp.open("GET","SelectName.jsp",true);
+		xhttp.send();
+	</script>
+</body>
+</html>

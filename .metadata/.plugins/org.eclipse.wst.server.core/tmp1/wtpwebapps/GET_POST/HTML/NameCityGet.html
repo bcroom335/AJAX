@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Name City Form</title>
+<script>
+	var queryString;
+
+	function doGet() {
+		getQueryString();
+		xhttp.open("GET", "NameCity.jsp?" + encodeURI(queryString), true);
+		xhttp.send();
+	}
+
+	function doPost() {
+		getQueryString();
+		xhttp.open("POST", "NameCity.jsp", true);
+		xhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded;charset=UTF-8")
+		xhttp.send(queryString);
+	}
+
+	function getQueryString() {
+		var name = document.getElementById("sname").value;
+		var city = document.getElementById("city").value;
+		queryString = "name=" + name + "&city=" + city;
+	}
+</script>
+</head>
+<body>
+	<h2>Form Demo</h2>
+	<form>
+		Your Name:<input type="text" id="sname" /><p>
+		Your City:<input type="text" id="city" /><p>
+		<button type="button" onclick="doGet()">Request data using GET</button>
+		<button type="button" onclick="doPost()">Request data using POST</button>
+	</form>
+	<div id="demo"></div>
+	<script>
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200)
+				document.getElementById("demo").innerHTML = xhttp.responseText;
+		}
+	</script>
+</body>
+</html>

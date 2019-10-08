@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Get XML File Demo2</title>
+</head>
+<body>
+	<h2>Get XML File Demo2</h2>
+	<table border='1' id="demo"></table>
+	<script>
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200)
+				var xmlDoc=xhttp.responseXML;
+				var txt="<tr><th>劇名<th>製作團<th>時間<th>適齡<th>票價";
+				var events=xmlDoc.getElementsByTagName("event");
+				for(i=0;i<events.length;i++){
+					txt +="<tr>"
+					titles=events[i].getElementsByTagName("劇名");
+					txt	+="<td>"+titles[0].firstChild.nodeValue;
+					producers=events[i].getElementsByTagName("製作團");
+					txt	+="<td>"+producers[0].firstChild.nodeValue;
+					time=events[i].getElementsByTagName("時間");
+					txt	+="<td>"+time[0].firstChild.nodeValue;
+					years=events[i].getElementsByTagName("適齡");
+					txt	+="<td>"+years[0].firstChild.nodeValue;
+					price=events[i].getElementsByTagName("票價");
+					txt	+="<td>$"+price[0].firstChild.nodeValue;
+				}
+				document.getElementById("demo").innerHTML = txt;
+		}
+		xhttp.open("GET","Event1.xml",true);
+		xhttp.send();
+	</script>
+
+</body>
+</html>

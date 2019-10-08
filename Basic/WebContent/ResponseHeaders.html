@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ResponsevHeader Demo</title>
+</head>
+<body>
+<h2>ResponsevHeader Demo</h2>
+<div id="demo"></div>
+<script>
+ 	var xhttp=new XMLHttpRequest();
+ 	xhttp.onreadystatechange=function(){
+ 		if(this.readyState==4 && this.status==200)
+ 			var txt = xhttp.getAllResponseHeaders();
+ 			txt += "<br>Last-Modified:"+this.getResponseHeader("Last-Modified");
+ 			txt += "<br>Content-Type:"+this.getResponseHeader("Content-Type");
+ 			txt += "<br>Content-Length:"+this.getResponseHeader("Content-Length");
+ 			document.getElementById("demo").innerHTML=txt;
+ 	}
+ 	xhttp.open("GET","res/info.txt",true);
+	xhttp.send();
+</script>
+
+</body>
+</html>

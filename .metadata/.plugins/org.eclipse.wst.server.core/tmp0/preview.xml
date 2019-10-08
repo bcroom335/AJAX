@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<server port="8080">
+  <module context="Basic" name="Basic" path="D:/AJAX/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/Basic" type="static"/>
+  <module context="XML" name="XML" path="D:/AJAX/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/XML" type="static"/>
+</server>

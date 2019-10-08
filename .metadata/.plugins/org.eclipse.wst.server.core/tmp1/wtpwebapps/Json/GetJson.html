@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Get JSON File Demo</title>
+</head>
+<body>
+	<h2>Get JSON File Demo</h2>
+	<table border='1' id="demo"></table>
+	<script>
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200){
+				var txt="<tr><th>劇名<th>製作團<th>時間<th>適齡<th>票價";
+				var events=JSON.parse(xhttp.responseText);
+				for(i=0;i<events.length;i++){
+					txt +="<tr><td>"+events[i].title;
+					txt +="<td>"+events[i].produce;
+					txt +="<td>"+events[i].time;
+					txt +="<td>"+events[i].age;
+					txt +="<td>"+events[i].price;
+				}
+				document.getElementById("demo").innerHTML = txt;
+			}				
+		}
+		xhttp.open("GET","res/event.json",true);
+		xhttp.send();
+	</script>
+
+</body>
+</html>

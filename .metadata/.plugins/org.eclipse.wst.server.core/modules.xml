@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<modules>
+  <module moduleId="org.eclipse.wst.web.internal.deployables.static:XML" serverId="HTTP Preview at localhost"/>
+  <module moduleId="org.eclipse.wst.web.internal.deployables.static:Basic" serverId="HTTP Preview at localhost"/>
+  <module moduleId="org.eclipse.jst.jee.server:GET_POST" serverId="Tomcat v9.0 Server at localhost"/>
+  <module moduleId="org.eclipse.jst.jee.server:Json" serverId="Tomcat v9.0 Server at localhost"/>
+</modules>
